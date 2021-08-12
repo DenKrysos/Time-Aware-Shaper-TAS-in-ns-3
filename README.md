@@ -1,5 +1,7 @@
 # Time-Aware Shaper (TAS) implemented in ns-3
 
+An implementation of the scheduled traffic forwarding mechanism »Time-Aware Shaper (TAS)« (IEEE 802.1Qbv), as known from »Time-Sensitive Networking (TSN)«, as a queue discipline extension to the network simulator »ns-3«.
+
 ## Compatibility
 Developed and Tested with <ns-3.31>
 
