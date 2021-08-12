@@ -1,0 +1,13 @@
+# -*- Mode: python; py-indent-offset: 4; indent-tabs-mode: nil; coding: utf-8; -*-
+
+def build(bld):
+    obj = bld.create_ns3_program('tsn-example1', ['tsn','core','csma','point-to-point','internet','applications'])
+    obj.source = 'tsn-example1.cc'
+    obj = bld.create_ns3_program('tsn-example2', ['tsn','core','csma','point-to-point','internet','applications'])
+    obj.source = 'tsn-example2.cc'
+    obj = bld.create_ns3_program('tsn-example3', ['tsn','core','csma','point-to-point','internet','applications']) 
+    obj.source = 'tsn-example3.cc'
+    obj = bld.create_ns3_program('tsn-example4', ['tsn','core','csma','internet','applications']) 
+    obj.source = 'tsn-example4.cc'
+    obj = bld.create_ns3_program('tsn-example5', ['tsn','core','csma','internet','applications']) 
+    obj.source = 'tsn-example5.cc'
