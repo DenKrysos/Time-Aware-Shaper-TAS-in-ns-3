@@ -1,1 +1,1 @@
-# Time-Aware-Shaper-TAS-in-ns-3
+# Time-Aware Shaper (TAS) implemented in ns-3
