@@ -65,10 +65,10 @@ public:
 };
 
 TsnTestSuite::TsnTestSuite ()
-  : TestSuite ("tsn", UNIT)
+  : TestSuite ("tsn", Type::UNIT)
 {
   // TestDuration for TestCase can be QUICK, EXTENSIVE or TAKES_FOREVER
-  AddTestCase (new TsnTestCase1, TestCase::QUICK);
+  AddTestCase (new TsnTestCase1, Duration::QUICK);
 }
 
 // Do not forget to allocate an instance of this TestSuite

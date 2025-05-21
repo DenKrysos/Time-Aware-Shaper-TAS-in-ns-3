@@ -137,7 +137,7 @@ TasQueueDisc::DoPeek (void)
           ListExecute(); //Update Queues
         }
 
-       if(m_gateListConfig.at(prio).GetGateState() && ( (item = GetQueueDiscClass (prio)->GetQueueDisc ()->Peek ()) != 0 ) )
+       if(m_gateListConfig.at(prio).GetGateState() && ( (item = GetQueueDiscClass (prio)->GetQueueDisc ()->Peek ()) != nullptr ) )
         {
            NS_LOG_LOGIC ("Peeked from band " << (prio) << ": " << item);
            return item;
@@ -204,7 +204,7 @@ TasQueueDisc::DoDequeue (void)
 
    if(m_transmitting.IsExpired())
     {
-       if(m_channel != 0 && m_channel->IsBusy()){
+       if (m_channel != nullptr && m_channel->IsBusy()){
             m_transmitting = Simulator::Schedule(m_linkBandwidth.CalculateBytesTxTime(m_Mtu/2),&TasQueueDisc::Run,this);
             return 0;
        }
@@ -223,7 +223,7 @@ TasQueueDisc::DoDequeue (void)
           queuePtr = GetQueueDiscClass(prio)->GetQueueDisc();
           returnVal = queuePtr->Dequeue();
 
-          if(returnVal != 0)
+          if (returnVal != nullptr)
             {
               SetTransmitting(returnVal);
               NS_LOG_LOGIC("Paket Dequeued " << now );
@@ -344,7 +344,7 @@ TasQueueDisc::UpdateTransmisionGate(unsigned int index, bool gateState, Time nex
        {
          ScheduleRun(index);
         }
-     else if(m_gateListConfig.at(index).reRunEvent.IsRunning())
+     else if(m_gateListConfig.at(index).reRunEvent.IsPending())
        {
          CancelRun(index);
        }
@@ -470,19 +470,19 @@ TasQueueDisc::ScheduleRun(uint32_t queue)
 {
   Time timePoint = m_gateListConfig.at(queue).GetNextEvent();
 
-  if(m_gateListConfig.at(queue).reRunEvent.IsRunning() && (m_gateListConfig.at(queue).reRunEventTimeStamp != timePoint || timePoint.IsStrictlyNegative()))
+  if(m_gateListConfig.at(queue).reRunEvent.IsPending() && (m_gateListConfig.at(queue).reRunEventTimeStamp != timePoint || timePoint.IsStrictlyNegative()))
     {
       CancelRun(queue);
       if(timePoint.IsStrictlyNegative()) return;
     }
-  else if (m_gateListConfig.at(queue).reRunEvent.IsRunning())
+  else if (m_gateListConfig.at(queue).reRunEvent.IsPending())
       {
         return;
       }
 
   for(unsigned int i = 0; i < 8; i++)
     {
-      if(m_gateListConfig.at(i).reRunEvent.IsRunning() && m_gateListConfig.at(i).reRunEventTimeStamp == timePoint)
+      if(m_gateListConfig.at(i).reRunEvent.IsPending() && m_gateListConfig.at(i).reRunEventTimeStamp == timePoint)
         {
           m_gateListConfig.at(queue).reRunEvent = m_gateListConfig.at(i).reRunEvent;
           m_gateListConfig.at(queue).reRunEventTimeStamp = m_gateListConfig.at(i).reRunEventTimeStamp;
@@ -589,7 +589,7 @@ TasQueueDisc::InitializeParams (void)
 
 void
 TasQueueDisc::CancelRun(uint32_t queue){
-  if(m_gateListConfig.at(queue).reRunEvent.IsRunning())
+  if(m_gateListConfig.at(queue).reRunEvent.IsPending())
     {
       int rerunby = -1;
       for(unsigned int i = 0; i < 8; i++)
