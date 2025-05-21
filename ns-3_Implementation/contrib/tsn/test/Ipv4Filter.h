@@ -22,7 +22,7 @@ namespace ns3 {
 
 class Ipv4Filter : public PacketFilter{
 public:
-  static TypeId GetTypeId (void);
+  static TypeId GetTypeId ();
   Ipv4Filter();
   virtual ~Ipv4Filter();
 

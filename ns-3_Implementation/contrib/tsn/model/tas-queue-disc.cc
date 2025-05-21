@@ -41,7 +41,7 @@ NS_LOG_COMPONENT_DEFINE ("TasQueueDisc");
 
 NS_OBJECT_ENSURE_REGISTERED (TasQueueDisc);
 
-TypeId TasQueueDisc::GetTypeId (void)
+TypeId TasQueueDisc::GetTypeId ()
 {
   static TypeId tid = TypeId ("ns3::TasQueueDisc")
     .SetParent<QueueDisc> ()
@@ -120,7 +120,7 @@ TasQueueDisc::~TasQueueDisc ()
 }
 
 Ptr<const QueueDiscItem>
-TasQueueDisc::DoPeek (void)
+TasQueueDisc::DoPeek ()
 {
   NS_LOG_FUNCTION (this);
 
@@ -196,7 +196,7 @@ TasQueueDisc::DoEnqueue (Ptr<QueueDiscItem> item)
 }
 
 Ptr<QueueDiscItem>
-TasQueueDisc::DoDequeue (void)
+TasQueueDisc::DoDequeue ()
 {
 
   NS_LOG_FUNCTION (this);
@@ -450,7 +450,7 @@ TasQueueDisc::GetNextBiggerEntry(std::vector<item> vector, item data)
 }
 
 NetDeviceListConfig
-TasQueueDisc::GetNetDeviceListConfig(void) const
+TasQueueDisc::GetNetDeviceListConfig() const
 {
   return m_currentConfig;
 }
@@ -498,7 +498,7 @@ TasQueueDisc::ScheduleRun(uint32_t queue)
 }
 
 bool
-TasQueueDisc::CheckConfig (void)
+TasQueueDisc::CheckConfig ()
 {
   NS_LOG_FUNCTION (this);
   if (GetNQueueDiscClasses () == 0)
@@ -569,7 +569,7 @@ TasQueueDisc::SetTransmitting(Ptr<const QueueDiscItem> item)
 }
 
 void
-TasQueueDisc::InitializeParams (void)
+TasQueueDisc::InitializeParams ()
 {
   NS_LOG_FUNCTION (this);
   ListExecute();
@@ -625,7 +625,7 @@ TasQueueDisc::SetTimeSource(Callback <Time> newCallback){
 }
 
 Callback <Time>
-TasQueueDisc::GetTimeSource(void) const {
+TasQueueDisc::GetTimeSource() const {
   return m_getNow;
 }
 

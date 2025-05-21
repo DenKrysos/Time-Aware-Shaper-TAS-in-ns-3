@@ -49,7 +49,7 @@ public:
    * \brief Get the type ID.
    * \return the object TypeId
    */
-  static TypeId GetTypeId (void);
+  static TypeId GetTypeId ();
   /**
    * \brief TasQueueDisc constructor
    *
@@ -58,16 +58,16 @@ public:
 
   virtual ~TasQueueDisc();
   bool SetMaxSize (QueueSize size);
-  QueueSize GetMaxSize2 (void) const;
+  QueueSize GetMaxSize2 () const;
   void SetNetDeviceListConfig(NetDeviceListConfig pandingConfig);
 
   void UpdateNetDeviceListConfig();
   void StopAllQueues(Time duration = Time(-1));
 
-  NetDeviceListConfig GetNetDeviceListConfig(void) const;
+  NetDeviceListConfig GetNetDeviceListConfig() const;
 
   void SetTimeSource(Callback<Time> newCallback);
-  Callback<Time> GetTimeSource(void) const;
+  Callback<Time> GetTimeSource() const;
 
   // Reasons for dropping packets
   static constexpr const char* LIMIT_EXCEEDED_DROP = "Queue disc limit exceeded";  //!< Packet dropped due to queue disc limit exceeded
@@ -75,11 +75,11 @@ public:
 
 private:
 
-  virtual void InitializeParams (void);
-  virtual bool CheckConfig (void);
+  virtual void InitializeParams ();
+  virtual bool CheckConfig ();
   virtual bool DoEnqueue (Ptr<QueueDiscItem> item);
-  virtual Ptr<QueueDiscItem> DoDequeue (void);
-  virtual Ptr<const QueueDiscItem> DoPeek (void);
+  virtual Ptr<QueueDiscItem> DoDequeue ();
+  virtual Ptr<const QueueDiscItem> DoPeek ();
 
   /**
    * holds all information about a childqueue

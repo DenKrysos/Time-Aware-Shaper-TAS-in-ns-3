@@ -101,7 +101,7 @@ public:
           Add(*(startItr+i),*(closItr+i),*(startOffsetItr+i),*(closOffsetItr+i));
       }
     }
-    void Clear(void)
+    void Clear()
     {
       m_openingTimes.clear();
       m_closingTimes.clear();

@@ -58,7 +58,7 @@ std::istream &operator >> (std::istream &is, GateState &state)
 
 NS_OBJECT_ENSURE_REGISTERED (TransmissonGateQdisc);
 
-TypeId TransmissonGateQdisc::GetTypeId (void)
+TypeId TransmissonGateQdisc::GetTypeId ()
 {
   static TypeId tid = TypeId ("ns3::TransmissonGateQdisc")
     .SetParent<QueueDisc> ()
@@ -111,7 +111,7 @@ TransmissonGateQdisc::~TransmissonGateQdisc ()
 }
 
 Ptr<const QueueDiscItem>
-TransmissonGateQdisc::DoPeek (void)
+TransmissonGateQdisc::DoPeek ()
 {
   NS_LOG_FUNCTION (this);
 
@@ -144,7 +144,7 @@ TransmissonGateQdisc::GetTransmissionDuration(Ptr<const QueueDiscItem> paketref)
 }
 
 Ptr<QueueDiscItem>
-TransmissonGateQdisc::DoDequeue (void)
+TransmissonGateQdisc::DoDequeue ()
 {
   NS_LOG_FUNCTION (this);
 
@@ -226,7 +226,7 @@ TransmissonGateQdisc::CheckLiveTimes()
 }
 
 bool
-TransmissonGateQdisc::CheckConfig (void)
+TransmissonGateQdisc::CheckConfig ()
 {
   NS_LOG_FUNCTION (this);
   if (GetNQueueDiscClasses () > 0)
@@ -250,7 +250,7 @@ TransmissonGateQdisc::CheckConfig (void)
 }
 
 void
-TransmissonGateQdisc::InitializeParams (void)
+TransmissonGateQdisc::InitializeParams ()
 {
   m_gateState.state = true;
   m_gateState.interval = Time(-1);
