@@ -64,7 +64,7 @@ bool
 TsnIpv4PacketFilter::CheckProtocol (Ptr<QueueDiscItem> item) const
 {
   NS_LOG_FUNCTION (this << item);
-  return (DynamicCast<Ipv4QueueDiscItem> (item) != 0);
+  return (DynamicCast<Ipv4QueueDiscItem> (item) != nullptr);
 }
 
 int32_t

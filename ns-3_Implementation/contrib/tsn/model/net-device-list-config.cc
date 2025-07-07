@@ -244,7 +244,7 @@ std::istream &operator >> (std::istream &is, NetDeviceListConfig::GateListConfig
 std::istream &operator >> (std::istream &is, NetDeviceListConfig &netDeviceListConfig)
 {
   char c;
-  NetDeviceListConfig::PandingStatus status;
+  NetDeviceListConfig::PandingStatus status = NetDeviceListConfig::PandingStatus::PANDING;
   is >> status >> c;
 
   netDeviceListConfig.SetPandingStatus(status);

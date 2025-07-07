@@ -154,7 +154,7 @@ TransmissonGateQdisc::DoDequeue (void)
 
   Ptr<const QueueDiscItem> paketref = queuePointer->Peek();
 
-  if(paketref == 0)
+  if (paketref == nullptr)
     {
       NS_LOG_LOGIC ("Queue empty");
       return 0;
@@ -216,7 +216,7 @@ TransmissonGateQdisc::CheckLiveTimes()
       paketref = queuePointer->Peek();
       drop = false;
 
-      if(m_keepAliveTime.IsStrictlyPositive() && paketref != 0 && paketref->GetTimeStamp() < (now - m_keepAliveTime))
+      if(m_keepAliveTime.IsStrictlyPositive() && paketref != nullptr && paketref->GetTimeStamp() < (now - m_keepAliveTime))
         {
           DropAfterDequeue(queuePointer->Dequeue(),PAKET_LIVE_EXCEEDED_DROP);
           drop = true;

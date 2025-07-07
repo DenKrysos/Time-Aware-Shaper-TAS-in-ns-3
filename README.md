@@ -3,17 +3,17 @@
 An implementation of the scheduled traffic forwarding mechanism »Time-Aware Shaper (TAS)« (IEEE 802.1Qbv), as known from »Time-Sensitive Networking (TSN)«, as a queue discipline extension to the network simulator »ns-3«.
 
 ## Compatibility
-Developed and Tested with <ns-3.31>
+Developed with <ns-3.31>. Adapted and tested with <ns-3.44>.
 
 ## Installation
 1) Copy the "contrib" folder from "ns-3_Implementation" into the ns-3's root-directory. (The contrib-dir belongs aside folders like "scratch", "utils", "examples".)
 2) From the ns-3 root-dir execute
 ```bash
-./waf configure --enable-examples --enable-tests
+./ns3 configure --enable-examples --enable-tests
 ```
 3) ns-3 compiles with
 ```bash
-./waf
+./ns3 build
 ```
 
 
