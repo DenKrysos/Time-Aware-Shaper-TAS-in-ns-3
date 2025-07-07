@@ -20,7 +20,7 @@ NS_LOG_COMPONENT_DEFINE ("Ipv4Filter");
 NS_OBJECT_ENSURE_REGISTERED (Ipv4Filter);
 
 TypeId
-Ipv4Filter::GetTypeId (void)
+Ipv4Filter::GetTypeId ()
 {
 
   static TypeId tid = TypeId ("ns3::Ipv4Filter")

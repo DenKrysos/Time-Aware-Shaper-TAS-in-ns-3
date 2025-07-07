@@ -63,7 +63,7 @@ public:
    * \brief Get the type ID.
    * \return the object TypeId
    */
-  static TypeId GetTypeId (void);
+  static TypeId GetTypeId ();
   /**
    * \brief TasQueueDisc constructor
    *
@@ -80,12 +80,12 @@ public:
 
 
 private:
-  virtual void InitializeParams (void);
+  virtual void InitializeParams ();
 
-  virtual bool CheckConfig (void);
+  virtual bool CheckConfig ();
   virtual bool DoEnqueue (Ptr<QueueDiscItem> item);
-  virtual Ptr<QueueDiscItem> DoDequeue (void);
-  virtual Ptr<const QueueDiscItem> DoPeek (void);
+  virtual Ptr<QueueDiscItem> DoDequeue ();
+  virtual Ptr<const QueueDiscItem> DoPeek ();
 
   virtual Time GetTransmissionDuration(Ptr<const QueueDiscItem> paketref);
 

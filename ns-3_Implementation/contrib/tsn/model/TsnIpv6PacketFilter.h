@@ -37,7 +37,7 @@ namespace ns3
 class TsnIpv6PacketFilter: public PacketFilter
 {
 public:
-  static TypeId GetTypeId (void);
+  static TypeId GetTypeId ();
 
   TsnIpv6PacketFilter();
   virtual ~TsnIpv6PacketFilter();

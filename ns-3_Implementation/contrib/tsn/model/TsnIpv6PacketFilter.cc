@@ -34,7 +34,7 @@ NS_LOG_COMPONENT_DEFINE ("TsnIpv6PacketFilter");
 NS_OBJECT_ENSURE_REGISTERED (TsnIpv6PacketFilter);
 
 TypeId
-TsnIpv6PacketFilter::GetTypeId (void)
+TsnIpv6PacketFilter::GetTypeId ()
 {
   static TypeId tid = TypeId ("ns3::TsnIpv6PacketFilter")
     .SetParent<PacketFilter> ()
